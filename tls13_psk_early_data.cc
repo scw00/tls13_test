@@ -166,6 +166,8 @@ main()
   SSL_CTX_sess_set_new_cb(client_ssl_ctx, ssl_client_new_session);
   SSL_CTX_set_max_early_data(server_ssl_ctx, 0xffff);
   SSL_CTX_set_max_early_data(client_ssl_ctx, 0xffff);
+  SSL_CTX_set_mode(server_ssl_ctx, SSL_MODE_QUIC_HACK);
+  SSL_CTX_set_mode(client_ssl_ctx, SSL_MODE_QUIC_HACK);
 
   SSL *server_ssl = SSL_new(server_ssl_ctx);
   SSL *client_ssl = SSL_new(client_ssl_ctx);
